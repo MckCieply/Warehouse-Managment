@@ -20,6 +20,7 @@ def signup_request(request):
         messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm()
     return render(request=request, template_name="registration/signup.html", context={"register_form":form})
+
 def login_request(request):
     if request.method == "POST":
         form = AuthenticationForm(request, data = request.POST)
