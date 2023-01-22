@@ -12,8 +12,9 @@
     {% if user.is_authenticated %}
         {%block content%}{%endblock%}
     {% else %}
-        <p> To view contents you need to be logged in </p>
-        <p>Login<a href ="login">here </a>.</p>
+        <p> To view contents you need to have account </p>
+        <p>Login<a href ="login"> here</a>.</p>
+        <p>Register<a href ="signup"> here</a>.</p>
     {% endif %}
     <script src="{% static '/main.js' %}"></script>
 </body>

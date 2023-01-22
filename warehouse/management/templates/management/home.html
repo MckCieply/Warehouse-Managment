@@ -1,7 +1,6 @@
 {% extends 'management/base.html' %}
 {% block title %} Home {% endblock %} 
 {% block content %}
-    <h1>Welcome home</h1>
-    <a href="/signup">Signup</a>
-    <a href="/login">Login</a>
+    Hi {{ user.username }}!
+    <p><a href="{% url 'logout' %}">Log Out</a></p>
 {% endblock %}
