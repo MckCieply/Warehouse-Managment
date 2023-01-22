@@ -9,7 +9,12 @@
     <link rel="stylesheet" href="{% static '/main.css' %}">
 </head>
 <body>
-    {%block content%}{%endblock%}
+    {% if user.is_authenticated %}
+        {%block content%}{%endblock%}
+    {% else %}
+        <p> To view contents you need to be logged in </p>
+        <p>Login<a href ="login">here </a>.</p>
+    {% endif %}
     <script src="{% static '/main.js' %}"></script>
 </body>
 </html>
