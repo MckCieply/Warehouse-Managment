@@ -41,3 +41,6 @@ def login_request(request):
 
 def logout(response):
     return render(response, "registration/logout.html")
+
+def state(response):
+    return render(response, "management/state.html")
