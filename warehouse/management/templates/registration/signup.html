@@ -3,8 +3,8 @@
 {% block content %} 
     
 <div>
-	<h1>Register</h1>
 	<form method="POST">
+		<p id="header">Register</p>
 		{% csrf_token %}
 		{{ register_form.as_p }}                    
 		<button type="submit">Register</button>
