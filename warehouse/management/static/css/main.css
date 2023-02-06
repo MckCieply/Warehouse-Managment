@@ -24,35 +24,9 @@ form {
     border-radius:50px;
     background-color:lightblue;
 }
-#id_first_name {
+#id_first_name, #id_last_name, #id_username, #id_password1, #id_password2, #id_email {
     border-radius: 100px;
-    font-size:30px;
     margin-top:5px;
-}
-#id_last_name {
-    border-radius: 100px;
-    font-size:30px;
-    margin-top:5px;
-}
-#id_username {
-    border-radius: 100px;
-    font-size:30px;
-    margin-top:5px;
-}
-#id_password1 {
-    border-radius: 100px;
-    font-size:30px;
-    margin-top:15px;
-}
-#id_password2 {
-    border-radius: 100px;
-    font-size:30px;
-    margin-top:15px;
-}
-#id_email {
-    border-radius: 100px;
-    font-size:30px;
-    margin-top:15px;  
 }
 form > button {
     margin-top:25px;
@@ -67,7 +41,7 @@ form > button {
     
 }
 input::placeholder {
-    font-size:16px;
+    font-size:20px;
     text-align:center;
 }
 form > button:hover {
@@ -77,4 +51,8 @@ form > button:active {
     background-color: rgb(126, 201, 226);
     box-shadow: 6px 3px #666;
     transform: translateY(3px);
+}
+input{
+    font-size:20px;
+    padding: 10px 20px;
 }
