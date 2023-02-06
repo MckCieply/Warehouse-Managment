@@ -24,6 +24,16 @@ form {
     border-radius:50px;
     background-color:lightblue;
 }
+#id_first_name {
+    border-radius: 100px;
+    font-size:30px;
+    margin-top:5px;
+}
+#id_last_name {
+    border-radius: 100px;
+    font-size:30px;
+    margin-top:5px;
+}
 #id_username {
     border-radius: 100px;
     font-size:30px;
@@ -42,7 +52,7 @@ form {
 #id_email {
     border-radius: 100px;
     font-size:30px;
-     margin-top:15px;   
+    margin-top:15px;  
 }
 form > button {
     margin-top:25px;
