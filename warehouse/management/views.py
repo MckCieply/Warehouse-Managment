@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .forms import NewUserForm
+from .forms import NewUserForm, LoginUserForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -23,7 +23,7 @@ def signup_request(request):
 
 def login_request(request):
     if request.method == "POST":
-        form = AuthenticationForm(request, data = request.POST)
+        form = LoginUserForm(request, data = request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
@@ -36,7 +36,7 @@ def login_request(request):
                 messages.error(request, "Invalid username or password")
         else:
             messages.error(request, "Invalid username or password")
-    form = AuthenticationForm()
+    form = LoginUserForm()
     return render(request = request, template_name = "registration/login.html", context = {"login_form":form})
 
 def logout(response):
