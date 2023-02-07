@@ -56,3 +56,6 @@ input{
     font-size:20px;
     padding: 10px 20px;
 }
+input:focus{
+    outline: 2px solid rgb(98, 194, 226);
+}
