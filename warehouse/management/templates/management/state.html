@@ -5,11 +5,16 @@
     <h4>List of stock</h4>
     <table>
         <tr>
-            <th>StockID</th>
-            <th>ManufID</th>
+            <th>ID</th>
             <th>Name</th>
             <th>Action</th>
         </tr>
-        
+        {% for item in items %}
+        <tr>
+            <td>{{item.item_id}}</td>
+            <td>{{item.name}}</td>
+            <td><a href="update.html">Update</a></td>
+        </tr>        
+        {% endfor %}
     </table>
 {% endblock %}

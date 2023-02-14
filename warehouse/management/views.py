@@ -4,6 +4,7 @@ from .forms import NewUserForm, LoginUserForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
+from .models import Item
 # Create your views here.
 
 def home(response):
@@ -43,4 +44,5 @@ def logout(response):
     return render(response, "registration/logout.html")
 
 def state(response):
-    return render(response, "management/state.html")
+    items = Item.objects.all()
+    return render(response, "management/state.html", {"items": items})
