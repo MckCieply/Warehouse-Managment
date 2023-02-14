@@ -5,9 +5,9 @@ from django.db import models
 class Item(models.Model):
     category_choices = [
         ('FOO', 'Food'),
-        ('BE', 'Beauty'),
+        ('BEA', 'Beauty'),
         ('CLO', 'Clothes'),
-        ('HE', 'Health'),
+        ('HEA', 'Health'),
         ('ACC', 'Accessories'),
         ]
     item_id = models.AutoField(primary_key=True)
