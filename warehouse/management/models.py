@@ -9,6 +9,7 @@ class Item(models.Model):
         ('CLO', 'Clothes'),
         ('HEA', 'Health'),
         ('ACC', 'Accessories'),
+        ('SHO', 'Shoes'),
         ]
     item_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=70)
