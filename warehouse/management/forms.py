@@ -38,4 +38,9 @@ class LoginUserForm(AuthenticationForm):
             self.fields[field].help_text = ''
             self.fields[field].label = ''
         self.fields['username'].widget.attrs.update({'placeholder':'Username'})
-        self.fields['password'].widget.attrs.update({'placeholder':'Password'})        
+        self.fields['password'].widget.attrs.update({'placeholder':'Password'})
+
+
+class UpdateForm(forms.Form):
+    change = forms.IntegerField(max_value=999, label='',required=False, widget= forms.NumberInput(attrs={
+                                'placeholder':'Add/Remove products', 'required': 'True' }))

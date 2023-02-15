@@ -2,7 +2,9 @@
 {% block title %} Update {% endblock %}
 {% block content %}
     <form method="POST">
-        <p>{{items.name}}</p>
+        <p id='header'>{{items.name}}</p>
+        {% csrf_token %}
+		{{ update_form.as_p }} 
         {% comment %} form featuring option to choose what is being updated
         by how much and or how much is left {% endcomment %}
         <button type="submit"> Update </button>

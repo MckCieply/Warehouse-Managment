@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .forms import NewUserForm, LoginUserForm
+from .forms import NewUserForm, LoginUserForm, UpdateForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -47,7 +47,8 @@ def state(response):
     items = Item.objects.all()
     return render(response, "management/state.html", {"items": items})
 
-def update(response, id):
+def update(request, id):
+    form = UpdateForm(request.POST)
     items = Item.objects.get(item_id=id)
     stock = Stock.objects.get(item_id=id)
-    return render(response, "management/update.html",{'items': items, 'stock':stock})
+    return render(request, template_name="management/update.html",context={'items': items, 'stock':stock,'update_form':form,})
