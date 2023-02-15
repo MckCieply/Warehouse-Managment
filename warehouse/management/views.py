@@ -48,7 +48,14 @@ def state(response):
     return render(response, "management/state.html", {"items": items})
 
 def update(request, id):
-    form = UpdateForm(request.POST)
     items = Item.objects.get(item_id=id)
     stock = Stock.objects.get(item_id=id)
+    if request.method == 'POST':
+        form = UpdateForm(request.POST)
+        if form.is_valid():
+            stock.stock_state += form.cleaned_data['stock_state']
+            stock.save(update_fields=["stock_state"])
+            return redirect("state")
+    else:
+        form = UpdateForm(request.POST)
     return render(request, template_name="management/update.html",context={'items': items, 'stock':stock,'update_form':form,})

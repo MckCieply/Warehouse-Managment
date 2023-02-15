@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from .models import Stock
 
 class NewUserForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
@@ -41,6 +42,17 @@ class LoginUserForm(AuthenticationForm):
         self.fields['password'].widget.attrs.update({'placeholder':'Password'})
 
 
-class UpdateForm(forms.Form):
-    change = forms.IntegerField(max_value=999, label='',required=False, widget= forms.NumberInput(attrs={
-                                'placeholder':'Add/Remove products', 'required': 'True' }))
+class UpdateForm(forms.ModelForm):
+    # change = forms.IntegerField(max_value=999, label='',required=False, widget= forms.NumberInput(attrs={
+    #                             'placeholder':'Add/Remove products', 'required': 'True' }))
+    class Meta:
+        model = Stock
+        fields = ['stock_state']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['stock_state'].help_text = ''
+        self.fields['stock_state'].label = ''
+        self.fields['stock_state'].required = False
+        self.fields['stock_state'].widget.attrs.update({'placeholder':'Add/Remove products', 'required': 'True' })
+        
