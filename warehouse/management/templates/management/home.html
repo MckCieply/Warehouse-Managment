@@ -3,10 +3,9 @@
 {% block content %}
     Hi {{ user.username }}!
     <p><a href="{% url 'logout' %}">Log Out</a></p>
-    <h4> Today is another day we see you here </h4>
-    <p> You are on 1/2/3 shift </p>
-    <div id="tasks">
-        <p>Your today tasks are as follows: </p>
+    <ul>
+        <li><a href={% url 'city' 'Warsaw' %}>Warsaw</a></li>
+        <li><a href={% url 'city' 'Cracow' %}>Cracow</a></li>
+    </ul>
         {% comment %} List defined by shiftsupervisor {% endcomment %}
-    </div>
 {% endblock %}
