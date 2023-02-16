@@ -58,7 +58,7 @@ def update(request, id, city):
         if form.is_valid():
             stock.stock_state += form.cleaned_data['stock_state']
             stock.save(update_fields=["stock_state"])
-            return redirect("state")
+            return redirect('/')
     else:
         form = UpdateForm(request.POST)
-    return render(request, template_name="management/update.html",context={'items': items, 'stock':stock,'warehouse':warehouse ,'update_form':form,})
+    return render(request, template_name="management/update.html",context={'items': items, 'stock':stock,'warehouse':warehouse ,'update_form':form, })

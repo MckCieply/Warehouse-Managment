@@ -8,6 +8,9 @@
             <th>ID</th>
             <th>Name</th>
             <th>Category</th>
+            <th>State</th>
+            <th>Target</th>
+            <th>Filled in</th>
             <th>Action</th>
         </tr>
         {% for product in stock %}
@@ -15,6 +18,9 @@
             <td>{{product.item_id.item_id}}</td>
             <td>{{product.item_id.name}}</td>
             <td>{{product.item_id.get_category_display}}</td>
+            <td>{{product.stock_state}}</td>
+            <td>{{product.target_state}}</td>
+            <td>JS Generated in future%</td>
             <td><a href={% url "update" warehouse.region product.item_id.item_id %}>Update</a></td>
         </tr>      
         {% endfor %}
