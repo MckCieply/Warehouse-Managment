@@ -7,6 +7,6 @@ urlpatterns = [
     path('signup', views.signup_request, name="signup"),
     path('login', views.login_request, name="login"),
     path('logout', LogoutView.as_view(template_name='registration/logout.html') , name="logout"),
-    path('state', views.state, name="state"),
-    path('<int:id>', views.update, name="update"),
+    path('<str:city>', views.state, name="city"),
+    path('<str:city>/<int:id>', views.update, name="update"),
 ]

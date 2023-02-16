@@ -4,7 +4,7 @@ from .forms import NewUserForm, LoginUserForm, UpdateForm
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
-from .models import Item, Stock
+from .models import Item, Stock, Warehouse
 # Create your views here.
 
 def home(response):
@@ -43,11 +43,14 @@ def login_request(request):
 def logout(response):
     return render(response, "registration/logout.html")
 
-def state(response):
+def state(response, city):
+    warehouse = Warehouse.objects.get(region = city)
+    stock = Stock.objects.filter(warehouse_id = warehouse.warehouse_id)
     items = Item.objects.all()
-    return render(response, "management/state.html", {"items": items})
+    return render(response, "management/state.html", {'items': items, "warehouse": warehouse, "stock": stock})
 
-def update(request, id):
+def update(request, id, city):
+    warehouse = Warehouse.objects.get(region = city)
     items = Item.objects.get(item_id=id)
     stock = Stock.objects.get(item_id=id)
     if request.method == 'POST':
@@ -58,4 +61,4 @@ def update(request, id):
             return redirect("state")
     else:
         form = UpdateForm(request.POST)
-    return render(request, template_name="management/update.html",context={'items': items, 'stock':stock,'update_form':form,})
+    return render(request, template_name="management/update.html",context={'items': items, 'stock':stock,'warehouse':warehouse ,'update_form':form,})

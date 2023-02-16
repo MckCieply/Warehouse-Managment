@@ -1,20 +1,22 @@
 {% extends 'management/base.html' %}
 {% block title %} State {% endblock %}
 {% block content %}
-    <h2>Warehouse in Poznań</h2>
+    <h2>Warehouse in {{ warehouse.region }}</h2>
     <h4>List of stock</h4>
     <table>
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Category</th>
             <th>Action</th>
         </tr>
-        {% for item in items %}
+        {% for product in stock %}
         <tr>
-            <td>{{item.item_id}}</td>
-            <td>{{item.name}}</td>
-            <td><a href={% url "update" item.item_id %}>Update</a></td>
-        </tr>        
+            <td>{{product.item_id.item_id}}</td>
+            <td>{{product.item_id.name}}</td>
+            <td>{{product.item_id.get_category_display}}</td>
+            <td><a href={% url "update" warehouse.region product.item_id.item_id %}>Update</a></td>
+        </tr>      
         {% endfor %}
     </table>
 {% endblock %}
